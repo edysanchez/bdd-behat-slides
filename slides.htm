@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>BDD and Behat</title>
+        <link rel="stylesheet" href="vendor/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="vendor/reveal.js/css/theme/simple.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>BDD and Behat</h1/>
+                </section>
+                <section>
+                    <section>
+                        <h1>BDD</h1>
+                    </section>
+                    <section>
+                    <img src="images/product.jpg" alt="product">
+                    </section>
+                    <section>
+                        <h1>What is BDD?</h1>
+                        <ul>
+                            <li>TDD extension </li>
+                            <li>Write human-readable stories that describes the application behaviour</li>
+                            <li>Focuses the communication between business developers and QA</li>
+                            <li>Code is self documenting</li>
+                        </ul>
+                    </section>
+                </section>
+                <section class="stack">
+                    <section>
+                        <h1>Gherkin</h1>
+                        <p>
+                            Gherkin is the language used to define behaviour
+                        </p>
+                        <p>Gherkin Depth levels</p>
+                        <ul>
+                            <li>Feature</li>
+                            <li>Scenario</li>
+                            <li>Step</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h1>Feature</h1>
+                        <ul>
+                            <li>What the feature offers </li>
+                            <li>Who will get the benefit</li>
+                            <li>Why we want the feature</li>
+                        </ul>
+                        <div>
+                        <pre>
+                            Feature: list folder content
+                            In order to see the directory structure
+                            As a OS user
+                            I am able to list the current directory's contents
+                        </pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Scenario</h1>
+                        <p> Use case explanation</p>
+                        <pre>
+                            Scenario: list 1 file in the directory
+                        </pre>
+                    </section>
+                    <section>
+                        <h1>Step</h1>
+                        <p>Scenario Step which can be for </p>
+                        <ol>
+                            <li>
+                            <p>Set scenario context</p>
+                            <p>Given I am in the directory "test"</p>
+                            </li>
+                            <li>
+                            <p>Use the system </p>
+                                <p>
+                                    When I run "ls"
+                                </p>
+                            </li>
+                            <li> 
+                                <p> Check the system state </p>
+                                <p>Then I should get """"  . """"</p>
+                            </li>
+                        </ol>
+                    </section>
+                    <section>
+                    <h1>Other constructions</h1>
+                    <ul>
+                        <li>Background</li>
+                        <li>Scenario Outline</li>
+                        <li>TableNode</li>
+                    </ul>
+                    </section>
+                </section>
+                <section class="stack">
+                <section>
+                    <h1>Behat</h1>
+                    <p>Behat is a PHP implementation of cucumber </p>
+                    <p>links methods with gherkin through regexp in documentation comments</p>
+                    <pre>
+                        /**
+                        *@When/^I run "ls"$/ 
+                        */
+                        public function iRun()
+                    </pre>
+                </section>
+                <section>
+                <h1>Behat</h1>
+                <ul>
+                    <li>
+                        Tags for filtering at feature,scenario and step level
+                    </li>
+                    <li>
+                        Hooks to execute code before or after Step/Scenario/Features
+                    </li>
+                    <li>
+                        Different configuration profiles and suites configurables via tags
+                    </li>
+                 </ul>
+                </section>
+                    <section>
+                    <h1> Behat </h1>
+                    <p >CheatSheet </p>
+                    <ul>
+                        <li>-p profile executes the selected profile</li>
+                        <li>--suite=suiteName execute the suite</li>
+                        <li> file.feature[:lineNumber] Execute all scenarios in the feature file or the one starting in lineNumber </li>
+                        <li>--dry-run simulates what will run </li>
+                        <li>-dl shows which steps can recognize </li>
+                    </ul>
+                    </section>
+                </section>
+                <section>
+                <h1>Mink</h1>
+                <p>Behat extension which offers a common interface to interact with different web drivers</p>
+                <p> Also offers a few predefined steps for basic assertions and browser operations</p>
+                </section>
+                <section>
+                <h1> Useful links </h1>
+                <ul>
+                    <li><a href="http://dannorth.net/whats-in-a-story">Whats in a story </a> </li>
+                    <li><a href="http://www.youtube.com/watch?v=QnPmbQbsTV0 ">Behat by example by everzet </a></li>
+                </ul>
+                </section>
+            </div>
+            </div>
+            <script src="vendor/reveal.js/lib/js/head.min.js"></script>
+            <script src="vendor/reveal.js/js/reveal.js" ></script>
+            <script >
+                Reveal.initialize({});
+            </script>
+        </body>
+    </html>
